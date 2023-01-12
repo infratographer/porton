@@ -8,7 +8,7 @@ ARG IMAGE=devopsfaith/krakend
 # krakend images should match,a and so, this is handled via a single
 # variable.
 # renovate: depName=devopsfaith/krakend
-ARG IMAGE_TAG=2.1.1
+ARG IMAGE_TAG=2.1.3
 
 
 FROM $BUILDER_IMAGE:$IMAGE_TAG AS pluginbuilder
