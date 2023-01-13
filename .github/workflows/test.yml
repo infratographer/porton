@@ -56,15 +56,15 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./images/treeman/Dockerfile
+          file: ./Dockerfile
           push: false
           load: true
-          tags: ghcr.io/infratographer/fertilesoil/treeman:latest
+          tags: ghcr.io/infratographer/porton/porton:latest
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: ghcr.io/infratographer/fertilesoil/treeman:latest
+          image-ref: ghcr.io/infratographer/porton/porton:latest
           security-checks: 'vuln,config,secret'
           ignore-unfixed: true
           severity: 'HIGH,CRITICAL'
