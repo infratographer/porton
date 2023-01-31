@@ -31,15 +31,7 @@ FROM $IMAGE:$IMAGE_TAG
 
 # For more information see https://www.krakend.io/docs/enterprise/configuration/flexible-config/
 ENV FC_ENABLE=1
-ENV FC_SETTINGS="/etc/krakend/settings"
-ENV FC_PARTIALS="/etc/krakend/partials"
-ENV FC_TEMPLATES="/etc/krakend/templates" 
 
-# Note that these are expected to be volumes when running
-# via an orchestration engine
-RUN mkdir -p /etc/krakend/settings
-RUN mkdir -p /etc/krakend/partials
-RUN mkdir -p /etc/krakend/templates
 RUN mkdir -p /usr/lib/krakend/plugins 
 
 # Copy plugins from the pluginbuilder
