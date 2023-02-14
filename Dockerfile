@@ -27,12 +27,14 @@ RUN go build -buildmode=plugin -o porton.so .
 # Gateway build
 FROM $IMAGE:$IMAGE_TAG
 
-# TODO: Run krakend as a non-root user
-
 # For more information see https://www.krakend.io/docs/enterprise/configuration/flexible-config/
 ENV FC_ENABLE=1
 
-RUN mkdir -p /usr/lib/krakend/plugins 
+# Ensure the plugins directory exists
+RUN mkdir -p /opt/krakend/plugins 
 
 # Copy plugins from the pluginbuilder
-COPY --from=pluginbuilder /go/src/porton/lib /usr/lib/krakend/plugins
+COPY --from=pluginbuilder /go/src/porton/lib /opt/krakend/plugins
+
+# Run as non-root user
+USER 1000
