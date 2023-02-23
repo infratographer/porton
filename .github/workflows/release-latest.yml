@@ -15,3 +15,4 @@ jobs:
       tag: latest
       registry_org: ${{ github.repository }}
       dockerfile_path: Dockerfile
+      platforms: linux/amd64,linux/arm64
